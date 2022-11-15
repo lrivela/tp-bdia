@@ -5,7 +5,7 @@ CREATE TABLE part_categories (
 
 CREATE TABLE themes (
 	id integer PRIMARY KEY,
-	name varchar(100) UNIQUE NOT NULL,
+	name varchar(100) NOT NULL,
 	parent_id integer,
 	FOREIGN KEY (parent_id) REFERENCES themes (id)
 );
@@ -13,13 +13,13 @@ CREATE TABLE themes (
 CREATE TABLE colors (
 	id integer PRIMARY KEY,
 	name varchar(100) UNIQUE NOT NULL,
-	rgb varchar(6) UNIQUE NOT NULL,
+	rgb varchar(6) NOT NULL,
 	is_trans boolean NOT NULL
 );
 
 CREATE TABLE parts (
 	part_num varchar(50) PRIMARY KEY,
-	name varchar(256) UNIQUE NOT NULL,
+	name varchar(256) NOT NULL,
 	part_cat_id integer NOT NULL,
 	FOREIGN KEY (part_cat_id) REFERENCES part_categories (id)
 );
